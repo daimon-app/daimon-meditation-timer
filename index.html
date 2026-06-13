@@ -844,11 +844,68 @@ function setSoundType(type) {
   selectedSound = type;
   localStorage.setItem(SOUND_KEY, type);
   updateSoundTypeUI();
-  // 再生中なら切り替え
-  if (noiseNode) {
-    stopNoise();
-    setTimeout(() => { if (soundOn || sleepSoundOn) startNoise(currentGentle); }, 450);
+
+  if (!noiseNode) {
+    // 再生中でない場合：選択したことが分かるよう、その場で短くプレビュー再生する
+    if (type !== 'silent') previewSound(type);
+    return;
   }
+
+  if (noiseNode.type === 'silent') {
+    noiseNode = null;
+    if (type !== 'silent') startNoise(currentGentle);
+    return;
+  }
+
+  if (type === 'silent') {
+    stopNoise();
+    noiseNode = { type: 'silent' };
+    return;
+  }
+
+  if (noiseNode.type === 'file') {
+    const audioEl = noiseNode.audioEl;
+    const newSrc = SOUND_SOURCES[type] || SOUND_SOURCES.ocean;
+    try {
+      audioEl.pause();
+      audioEl.currentTime = 0;
+      audioEl.src = newSrc;
+      audioEl.load();
+      audioEl.play().catch(() => {});
+      noiseNode.src = newSrc;
+    } catch {}
+    return;
+  }
+
+  // 生成波音の場合は一度止めて新しい音源で再生し直す
+  stopNoise();
+  setTimeout(() => { if (soundOn || sleepSoundOn) startNoise(currentGentle); }, 450);
+}
+
+// ホーム画面で音源を選んだ時、再生中でなくても
+// 選択した音が鳴ることを確認できるよう数秒だけ再生するプレビュー
+let previewAudioEl = null;
+function previewSound(type) {
+  const src = SOUND_SOURCES[type] || SOUND_SOURCES.ocean;
+
+  if (previewAudioEl) {
+    try { previewAudioEl.pause(); } catch {}
+    previewAudioEl = null;
+  }
+
+  const audioEl = new Audio(src);
+  audioEl.volume = 0.6;
+  previewAudioEl = audioEl;
+  audioEl.play().catch(() => {});
+
+  // 3秒だけ再生してフェードアウト
+  setTimeout(() => {
+    if (previewAudioEl !== audioEl) return; // 別のプレビューに切り替わっていたら何もしない
+    fadeAudioElToZero(audioEl, 0.4, () => {
+      try { audioEl.pause(); } catch {}
+      if (previewAudioEl === audioEl) previewAudioEl = null;
+    });
+  }, 3000);
 }
 
 function updateSoundTypeUI() {
@@ -869,12 +926,14 @@ function startNoise(gentle) {
     return;
   }
 
-  initAudio();
-
   const src = SOUND_SOURCES[selectedSound] || SOUND_SOURCES.ocean;
   const audioEl = new Audio(src);
   audioEl.loop = true;
   audioEl.preload = 'auto';
+  audioEl.volume = gentle ? 0.5 : 0.6;
+
+  // すぐに登録（再生中の切り替え操作で重複起動しないように）
+  noiseNode = { type: 'file', audioEl, src };
 
   let usedFallback = false;
 
@@ -882,23 +941,13 @@ function startNoise(gentle) {
     if (usedFallback) return;
     usedFallback = true;
     try { audioEl.pause(); } catch {}
+    noiseNode = null;
+    initAudio();
     startGeneratedWave(gentle);
   };
 
   audioEl.addEventListener('error', tryFallback);
-
-  audioEl.play().then(() => {
-    if (usedFallback) return; // フォールバックが先に走っていたら無視
-
-    // MediaElementSource経由でGainNodeに接続（フェード用）
-    const srcNode = audioCtx.createMediaElementSource(audioEl);
-    const gain = audioCtx.createGain();
-    gain.gain.value = gentle ? 0.16 : 0.18;
-    srcNode.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    noiseNode = { type: 'file', audioEl, gain };
-  }).catch(tryFallback);
+  audioEl.play().catch(tryFallback);
 }
 
 // --- フォールバック：生成波音（Web Audio合成） ---
@@ -1027,23 +1076,48 @@ function stopNoise() {
 
   if (node.type === 'silent') return; // 無音モードは何もしない
 
+  if (node.type === 'file') {
+    try {
+      fadeAudioElToZero(node.audioEl, 0.3, () => {
+        try { node.audioEl.pause(); node.audioEl.currentTime = 0; } catch {}
+      });
+    } catch {}
+    return;
+  }
+
   try {
     if (bigWaveTimer) { clearTimeout(bigWaveTimer); bigWaveTimer = null; }
     node.gain.gain.cancelScheduledValues(audioCtx.currentTime);
     node.gain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.3);
 
     setTimeout(() => {
-      if (node.type === 'file') {
-        try { node.audioEl.pause(); } catch {}
-      } else {
-        try { node.source.stop(); } catch {}
-      }
+      try { node.source.stop(); } catch {}
     }, 400);
   } catch {}
 }
 
+// <audio>要素のvolumeを短時間でフェードして停止するヘルパー
+function fadeAudioElToZero(audioEl, durationSec, onDone) {
+  const steps = 10;
+  const startVol = audioEl.volume;
+  const stepTime = (durationSec * 1000) / steps;
+  let i = 0;
+  const iv = setInterval(() => {
+    i++;
+    audioEl.volume = Math.max(0, startVol * (1 - i / steps));
+    if (i >= steps) {
+      clearInterval(iv);
+      if (onDone) onDone();
+    }
+  }, stepTime);
+}
+
 function stopAllAudio() {
   stopNoise();
+  if (previewAudioEl) {
+    try { previewAudioEl.pause(); } catch {}
+    previewAudioEl = null;
+  }
 }
 
 function toggleSound() {
@@ -1284,11 +1358,25 @@ function startSleep(durationMin) {
       // 最後5分でフェードアウト開始（無音モードでは不要）
       if (remainingSec <= fadeStartSec && remainingSec > 0 && !sleepFadeStarted && noiseNode && noiseNode.type !== 'silent') {
         sleepFadeStarted = true;
-        const now = audioCtx.currentTime;
-        noiseNode.gain.gain.cancelScheduledValues(now);
-        noiseNode.gain.gain.setValueAtTime(noiseNode.gain.gain.value, now);
-        noiseNode.gain.gain.linearRampToValueAtTime(0, now + remainingSec);
-        if (bigWaveTimer) { clearTimeout(bigWaveTimer); bigWaveTimer = null; }
+
+        if (noiseNode.type === 'file') {
+          const startVol = noiseNode.audioEl.volume;
+          const steps = Math.min(60, remainingSec);
+          const stepTime = (remainingSec * 1000) / steps;
+          let i = 0;
+          const iv = setInterval(() => {
+            i++;
+            if (!noiseNode) { clearInterval(iv); return; }
+            noiseNode.audioEl.volume = Math.max(0, startVol * (1 - i / steps));
+            if (i >= steps) clearInterval(iv);
+          }, stepTime);
+        } else {
+          const now = audioCtx.currentTime;
+          noiseNode.gain.gain.cancelScheduledValues(now);
+          noiseNode.gain.gain.setValueAtTime(noiseNode.gain.gain.value, now);
+          noiseNode.gain.gain.linearRampToValueAtTime(0, now + remainingSec);
+          if (bigWaveTimer) { clearTimeout(bigWaveTimer); bigWaveTimer = null; }
+        }
       }
 
       if (remainingSec <= 0) {
