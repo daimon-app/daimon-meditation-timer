@@ -55,6 +55,10 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .tool-card.sleep .tool-icon{font-size:26px;color:#a8a0e8;}
 .tool-card.sleep .tool-unit{color:#a8a0e8;font-size:10px;}
 .tool-card.sleep:hover{border-color:#6a5fc0;box-shadow:0 0 20px rgba(106,95,192,0.15);}
+.tool-card.break{background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,0.05),var(--card) 70%);}
+.tool-card.break .tool-icon{font-size:26px;color:#e8e8e8;}
+.tool-card.break .tool-unit{color:#e8e8e8;font-size:11px;letter-spacing:2px;}
+.tool-card.break:hover{border-color:#cfcfcf;box-shadow:0 0 20px rgba(255,255,255,0.1);}
 
 /* HOME PHILOSOPHY */
 .home-philosophy{
@@ -204,6 +208,13 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .sound-toggle.on{border-color:var(--gold);color:var(--gold2);}
 .sound-toggle:hover{border-color:var(--gold2);}
 
+.session-note{
+  margin-top:14px;font-size:10px;letter-spacing:1px;
+  color:var(--muted);text-align:center;max-width:280px;
+  line-height:1.6;
+}
+.session-note.warn{color:#c0696f;}
+
 /* ===== COMPLETE SCREEN ===== */
 #complete{justify-content:center;padding:40px 24px;text-align:center;position:relative;z-index:1;}
 .complete-mark{font-size:14px;letter-spacing:8px;color:var(--gold);margin-bottom:32px;}
@@ -224,6 +235,77 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .sleep-msg{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--textD);margin-bottom:48px;text-align:center;}
 .sleep-elapsed{font-family:'Playfair Display',serif;font-size:48px;color:var(--gold3);letter-spacing:2px;margin-bottom:4px;text-shadow:0 0 20px rgba(240,208,128,0.2);}
 .sleep-remaining{font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:36px;min-height:14px;}
+
+/* ===== GENBA THEME (休憩モード：黒×白、屋外視認性重視) ===== */
+.screen.genba{
+  background:#111111;
+  color:#ffffff;
+}
+.screen.genba .session-back.genba-back{
+  background:rgba(17,17,17,0.92);
+  color:#cccccc;
+  border-bottom:1px solid #2a2a2a;
+}
+.screen.genba .session-back.genba-back .arrow{color:#D4AF37;}
+.screen.genba .session-back.genba-back:hover{color:#D4AF37;}
+
+#breakSetup{justify-content:flex-start;padding:100px 24px 60px;align-items:center;}
+.genba-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;letter-spacing:4px;color:#ffffff;margin-bottom:8px;text-align:center;}
+.genba-sub{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:#aaaaaa;margin-bottom:32px;text-align:center;}
+
+.genba-input-wrap{width:100%;max-width:360px;margin-bottom:36px;}
+.genba-input{
+  width:100%;padding:16px;background:#1a1a1a;
+  border:1px solid #333333;color:#ffffff;
+  font-family:'Noto Serif JP',serif;font-size:15px;
+  margin-bottom:12px;
+}
+.genba-input:focus{outline:none;border-color:#D4AF37;}
+.genba-input::placeholder{color:#666666;}
+.genba-presets{display:flex;flex-wrap:wrap;gap:8px;}
+.genba-preset-btn{
+  padding:10px 14px;background:transparent;border:1px solid #333333;
+  color:#cccccc;font-family:'Noto Serif JP',serif;font-size:12px;
+  letter-spacing:1px;cursor:pointer;transition:all 0.2s;
+}
+.genba-preset-btn:hover{border-color:#D4AF37;color:#D4AF37;}
+
+.genba-time-label{font-size:10px;letter-spacing:4px;color:#888888;text-transform:uppercase;margin-bottom:12px;}
+.genba-time-row{display:flex;gap:10px;width:100%;max-width:360px;}
+.genba-time-btn{
+  flex:1;padding:18px 8px;background:#1a1a1a;border:1px solid #333333;
+  color:#ffffff;font-family:'Playfair Display',serif;font-size:18px;
+  cursor:pointer;transition:all 0.2s;
+}
+.genba-time-btn:hover{border-color:#D4AF37;color:#D4AF37;background:rgba(212,175,55,0.06);}
+
+/* BREAK SESSION */
+#breakSession{padding:24px;}
+.genba-mode-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#ffffff;margin-bottom:28px;text-align:center;letter-spacing:4px;}
+.genba-ring .genba-ring-bg{stroke:#333333;}
+.genba-ring .genba-ring-fill{stroke:#D4AF37;filter:drop-shadow(0 0 8px rgba(212,175,55,0.4));}
+.genba-time{color:#ffffff;text-shadow:none;}
+.genba-state{color:#D4AF37;}
+.genba-calm-list{
+  display:flex;flex-direction:column;gap:10px;align-items:center;
+  margin-top:8px;font-family:'Cormorant Garamond',serif;font-size:18px;
+  font-style:italic;color:#cccccc;
+}
+.genba-btn{border-color:#333333;color:#cccccc;}
+.genba-btn:hover{border-color:#D4AF37;color:#D4AF37;}
+.genba-btn.gold{border-color:#D4AF37;color:#D4AF37;background:rgba(212,175,55,0.06);}
+.genba-btn.gold:hover{background:rgba(212,175,55,0.14);}
+
+/* BREAK DONE */
+#breakDone{justify-content:center;padding:40px 24px;text-align:center;}
+.genba-done-mark{font-size:28px;color:#D4AF37;margin-bottom:24px;}
+.genba-done-label{font-family:'Playfair Display',serif;font-size:20px;letter-spacing:6px;color:#ffffff;margin-bottom:32px;}
+.genba-done-sub{font-size:12px;letter-spacing:4px;color:#888888;text-transform:uppercase;margin-bottom:14px;}
+.genba-next-action{
+  font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;
+  color:#ffffff;max-width:320px;line-height:1.6;
+  border:1px solid #333333;padding:24px;background:#1a1a1a;
+}
 
 /* SLEEP SELECT */
 #sleepSelect{justify-content:flex-start;padding:120px 24px 60px;position:relative;z-index:1;}
@@ -271,6 +353,9 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
     </div>
     <div class="tool-card sleep" onclick="showScreen('sleepSelect')">
       <div class="tool-icon">◐</div><div class="tool-unit">眠れない時</div>
+    </div>
+    <div class="tool-card break" onclick="openBreakSetup()">
+      <div class="tool-icon">↺</div><div class="tool-unit">休憩</div>
     </div>
   </div>
 
@@ -390,6 +475,13 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
     ♪ &nbsp;自然音 — OFF
   </div>
 
+  <div class="session-note">
+    深く入る場合はスマホ標準アラームとの併用を推奨します。
+  </div>
+  <div class="session-note warn" id="wakeLockNote" style="display:none;">
+    この端末は画面消灯防止に対応していません。スマホ標準アラームを併用してください。
+  </div>
+
   <div class="session-actions" style="margin-top:28px;">
     <button class="s-btn" id="pauseBtn" onclick="togglePause()">一旦止める</button>
     <button class="s-btn gold" onclick="cancelSession()">終了</button>
@@ -435,6 +527,77 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   </div>
 </div>
 
+<!-- ===== BREAK SETUP (休憩前: 次の一手を入力) ===== -->
+<div id="breakSetup" class="screen genba">
+  <div class="session-back genba-back" onclick="goHome()">
+    <span class="arrow">←</span> 戻る
+  </div>
+
+  <div class="genba-title">休憩</div>
+  <div class="genba-sub">休憩後、最初にやることを決めておく</div>
+
+  <div class="genba-input-wrap">
+    <input type="text" id="nextActionInput" class="genba-input" placeholder="例：ボードを1枚貼る" maxlength="40">
+    <div class="genba-presets">
+      <button class="genba-preset-btn" onclick="setNextAction('間柱を入れる')">間柱を入れる</button>
+      <button class="genba-preset-btn" onclick="setNextAction('ボードを1枚貼る')">ボードを1枚貼る</button>
+      <button class="genba-preset-btn" onclick="setNextAction('墨出しをする')">墨出しをする</button>
+      <button class="genba-preset-btn" onclick="setNextAction('次の一手だけ見る')">次の一手だけ見る</button>
+    </div>
+  </div>
+
+  <div class="genba-time-label">休憩時間</div>
+  <div class="genba-time-row">
+    <button class="genba-time-btn" onclick="startBreak(5)">5分</button>
+    <button class="genba-time-btn" onclick="startBreak(10)">10分</button>
+    <button class="genba-time-btn" onclick="startBreak(15)">15分</button>
+    <button class="genba-time-btn" onclick="startBreak(20)">20分</button>
+  </div>
+</div>
+
+<!-- ===== BREAK SESSION (休憩中) ===== -->
+<div id="breakSession" class="screen genba">
+  <div class="session-back genba-back" onclick="cancelBreak()">
+    <span class="arrow">←</span> 戻る
+  </div>
+
+  <div class="genba-mode-name">休憩中</div>
+
+  <div class="timer-ring-wrap genba-ring">
+    <svg viewBox="0 0 240 240">
+      <circle class="t-bg genba-ring-bg" cx="120" cy="120" r="108" fill="none" stroke-width="4"/>
+      <circle class="t-fill genba-ring-fill" id="breakRingFill" cx="120" cy="120" r="108" fill="none" stroke-width="4" stroke-dasharray="679" stroke-dashoffset="0"/>
+    </svg>
+    <div class="timer-display">
+      <div class="timer-time genba-time" id="breakTimerTime">00:00</div>
+      <div class="timer-state genba-state" id="breakTimerState">整える</div>
+    </div>
+  </div>
+
+  <div class="genba-calm-list">
+    <div>鼻呼吸</div>
+    <div>肩の力を抜く</div>
+    <div>目を閉じる</div>
+  </div>
+
+  <div class="session-actions" style="margin-top:28px;">
+    <button class="s-btn genba-btn" id="breakPauseBtn" onclick="toggleBreakPause()">一旦止める</button>
+    <button class="s-btn genba-btn gold" onclick="cancelBreak()">終了</button>
+  </div>
+</div>
+
+<!-- ===== BREAK DONE (休憩終了→次の一手) ===== -->
+<div id="breakDone" class="screen genba">
+  <div class="genba-done-mark">✦</div>
+  <div class="genba-done-label">休憩終了</div>
+  <div class="genba-done-sub">まず</div>
+  <div class="genba-next-action" id="breakNextActionDisplay">—</div>
+
+  <div class="session-actions" style="margin-top:40px;max-width:320px;">
+    <button class="s-btn genba-btn gold" style="flex:1" onclick="goHome()">現場に戻る</button>
+  </div>
+</div>
+
 </div>
 
 <script>
@@ -443,6 +606,10 @@ let currentTimer = null;
 let totalSeconds = 0;
 let remainingSeconds = 0;
 let isPaused = false;
+let sessionEndTime = 0;    // 終了予定の絶対時刻（Date.now()基準, ms）
+let pausedRemainingMs = 0; // 一時停止時点での残りミリ秒
+let wakeLock = null;
+let wakeLockUnsupported = false;
 let soundOn = false;
 const COUNT_SOUND_KEY = 'daimon_count_sound';
 let countSoundOn = localStorage.getItem(COUNT_SOUND_KEY) !== '0'; // 初期値ON
@@ -538,7 +705,7 @@ function renderHistory() {
 
     const icon = document.createElement('div');
     icon.className = 'h-icon';
-    icon.textContent = item.type === 'sleep' ? '◐' : '✦';
+    icon.textContent = item.type === 'sleep' ? '◐' : item.type === 'break' ? '↺' : '✦';
 
     const info = document.createElement('div');
     info.className = 'h-info';
@@ -615,25 +782,39 @@ function playBeep() {
   osc.stop(audioCtx.currentTime + 0.15);
 }
 
+// 瞑想終了音：確実に鳴らすため、カウント音設定とは独立させる。
+// AudioContextがバックグラウンドでサスペンドされている場合はresumeしてから鳴らす。
 function playFinishBell() {
-  if (!countSoundOn) return;
   initAudio();
-  const now = audioCtx.currentTime;
-  // ベルらしい質感: 基音＋倍音を重ねる
-  [660, 990, 1320].forEach((freq, i) => {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.value = freq;
-    const vol = 0.20 / (i + 1);
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(vol, now + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.4);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start(now);
-    osc.stop(now + 1.4);
-  });
+
+  const ring = () => {
+    const now = audioCtx.currentTime;
+    // ベルらしい質感: 基音＋倍音を重ねる（音量を強化、減衰も長め）
+    [660, 990, 1320, 1980].forEach((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      const vol = 0.35 / (i + 1);
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(vol, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.2);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 2.2);
+    });
+  };
+
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume().then(() => {
+      ring();
+      setTimeout(ring, 700);
+    }).catch(() => {});
+  } else {
+    ring();
+    setTimeout(ring, 700);
+  }
 }
 
 function toggleCountSound() {
@@ -890,6 +1071,8 @@ function startSession(value, unit, label) {
   totalSeconds = unit === 'secs' ? value : value * 60;
   remainingSeconds = totalSeconds;
   isPaused = false;
+  pausedRemainingMs = 0;
+  sessionEndTime = Date.now() + totalSeconds * 1000;
 
   document.getElementById('sessionModeName').textContent = `${label}${value}${unit === 'secs' ? '秒' : '分'}`;
   document.getElementById('sessionOneLine').textContent = MODE_CONTENT[label] || '整える';
@@ -907,17 +1090,29 @@ function startSession(value, unit, label) {
   soundEl.textContent = soundOn ? '♪  自然音 — ON' : '♪  自然音 — OFF';
   if (soundOn) startNoise();
 
+  requestWakeLock();
+
   if (currentTimer) clearInterval(currentTimer);
   currentTimer = setInterval(tick, 1000);
 }
 
+// 残り秒数を「終了予定の絶対時刻」から再計算する
+// setIntervalの間引き・スリープの影響を受けない
+function recalcRemaining() {
+  if (isPaused) return;
+  remainingSeconds = Math.max(0, Math.ceil((sessionEndTime - Date.now()) / 1000));
+}
+
 function tick() {
   if (isPaused) return;
-  remainingSeconds--;
+
+  const prevRemaining = remainingSeconds;
+  recalcRemaining();
   updateTimeDisplay();
   updateRing();
 
-  if (remainingSeconds <= 5 && remainingSeconds >= 1) {
+  // カウント音：5,4,3,2,1のいずれかを跨いだら鳴らす
+  if (remainingSeconds <= 5 && remainingSeconds >= 1 && remainingSeconds !== prevRemaining) {
     playBeep();
   }
 
@@ -927,6 +1122,60 @@ function tick() {
     finishSession();
   }
 }
+
+// ===== Wake Lock（瞑想中の画面消灯防止） =====
+async function requestWakeLock() {
+  if (!('wakeLock' in navigator)) {
+    wakeLockUnsupported = true;
+    const note = document.getElementById('wakeLockNote');
+    if (note) note.style.display = 'block';
+    return;
+  }
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    wakeLock.addEventListener('release', () => { wakeLock = null; });
+    const note = document.getElementById('wakeLockNote');
+    if (note) note.style.display = 'none';
+  } catch (e) {
+    wakeLockUnsupported = true;
+    const note = document.getElementById('wakeLockNote');
+    if (note) note.style.display = 'block';
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock) {
+    try { wakeLock.release(); } catch {}
+    wakeLock = null;
+  }
+}
+
+// ===== 復帰時の残り時間再計算（画面消灯・バックグラウンド対策） =====
+function handleReturnToForeground() {
+  if (!document.getElementById('session').classList.contains('active')) return;
+  if (currentTimer === null && !isPaused) return;
+  if (isPaused) return;
+
+  recalcRemaining();
+  updateTimeDisplay();
+  updateRing();
+
+  if (remainingSeconds <= 0) {
+    if (currentTimer) { clearInterval(currentTimer); currentTimer = null; }
+    finishSession();
+    return;
+  }
+
+  if (!wakeLock && !wakeLockUnsupported) {
+    requestWakeLock();
+  }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') handleReturnToForeground();
+});
+window.addEventListener('focus', handleReturnToForeground);
+window.addEventListener('pageshow', handleReturnToForeground);
 
 function updateTimeDisplay() {
   const m = Math.floor(remainingSeconds / 60);
@@ -943,6 +1192,13 @@ function updateRing() {
 
 function togglePause() {
   isPaused = !isPaused;
+
+  if (isPaused) {
+    pausedRemainingMs = Math.max(0, sessionEndTime - Date.now());
+  } else {
+    sessionEndTime = Date.now() + pausedRemainingMs;
+  }
+
   document.getElementById('pauseBtn').textContent = isPaused ? '再開する' : '一旦止める';
   document.getElementById('timerState').textContent = isPaused ? '一時停止中' : '進行中';
 }
@@ -951,12 +1207,14 @@ function cancelSession() {
   if (currentTimer) clearInterval(currentTimer);
   currentTimer = null;
   stopAllAudio();
+  releaseWakeLock();
   goHome();
 }
 
 async function finishSession() {
   playFinishBell();
   stopAllAudio();
+  releaseWakeLock();
 
   // 履歴保存
   const durLabel = currentModeUnit === 'secs' ? `${currentModeValue}秒` : `${currentModeValue}分`;
@@ -1079,6 +1337,96 @@ function endSleep() {
 // ===== UTILS =====
 function formatDate(d) {
   return `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+
+// ===== 休憩モード（戻る一手） =====
+let nextActionText = '';
+let breakTimer = null;
+let breakTotalSeconds = 0;
+let breakRemainingSeconds = 0;
+let breakPaused = false;
+
+function openBreakSetup() {
+  nextActionText = '';
+  const input = document.getElementById('nextActionInput');
+  if (input) input.value = '';
+  showScreen('breakSetup');
+}
+
+function setNextAction(text) {
+  const input = document.getElementById('nextActionInput');
+  if (input) input.value = text;
+}
+
+function startBreak(minutes) {
+  const input = document.getElementById('nextActionInput');
+  const val = (input?.value || '').trim().slice(0, 40);
+  nextActionText = val || '次の一手だけ見る';
+
+  breakTotalSeconds = minutes * 60;
+  breakRemainingSeconds = breakTotalSeconds;
+  breakPaused = false;
+
+  document.getElementById('breakPauseBtn').textContent = '一旦止める';
+  document.getElementById('breakTimerState').textContent = '整える';
+  updateBreakDisplay();
+
+  showScreen('breakSession');
+
+  if (breakTimer) clearInterval(breakTimer);
+  breakTimer = setInterval(breakTick, 1000);
+}
+
+function breakTick() {
+  if (breakPaused) return;
+  breakRemainingSeconds--;
+  updateBreakDisplay();
+
+  if (breakRemainingSeconds <= 5 && breakRemainingSeconds >= 1) {
+    playBeep();
+  }
+
+  if (breakRemainingSeconds <= 0) {
+    clearInterval(breakTimer);
+    breakTimer = null;
+    finishBreak();
+  }
+}
+
+function updateBreakDisplay() {
+  const m = Math.floor(breakRemainingSeconds / 60);
+  const s = breakRemainingSeconds % 60;
+  document.getElementById('breakTimerTime').textContent =
+    `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+
+  const pct = breakRemainingSeconds / breakTotalSeconds;
+  document.getElementById('breakRingFill').style.strokeDashoffset = RING_CIRC * (1 - pct);
+}
+
+function toggleBreakPause() {
+  breakPaused = !breakPaused;
+  document.getElementById('breakPauseBtn').textContent = breakPaused ? '再開する' : '一旦止める';
+  document.getElementById('breakTimerState').textContent = breakPaused ? '一時停止中' : '整える';
+}
+
+function finishBreak() {
+  playFinishBell();
+
+  saveHistoryEntry({
+    type: 'break',
+    label: '休憩',
+    duration: `${Math.round(breakTotalSeconds / 60)}分`,
+    date: formatDate(new Date()),
+  });
+
+  document.getElementById('breakNextActionDisplay').textContent = nextActionText; // textContentで安全
+  showScreen('breakDone');
+}
+
+function cancelBreak() {
+  if (breakTimer) clearInterval(breakTimer);
+  breakTimer = null;
+  goHome();
 }
 
 // ===== INIT =====
