@@ -106,3 +106,18 @@
 | Next validation | Add owner-input-gated legal/support materials; then test production hosting, all links, and the final public copy. |
 
 | D-007 | 2026-08-19 | DECIDED | Pre-launch LP and bidirectional app link implemented; no sales CTA. | `landing/index.html`; sales flow spec; local integration check |
+
+## 2026-08-19 — Legal/commercial publication is owner-input-gated and sales remains NO GO
+
+| Field | Record |
+| --- | --- |
+| ID | `D-008` |
+| Status | `NO GO` for paid sale, price publication, checkout, lead collection, commercial email, and public publication of incomplete legal documents. |
+| Decision | Prepare repository-owned drafts and official-source research, but do not publish legal notices with placeholder or invented information and do not start commercial operations. |
+| Primary-source evidence | Consumer Affairs Agency guidance identifies key communications-sales disclosures (price, payment, provision timing, cancellation/withdrawal, seller particulars, additional charges, software environment) and final confirmation display. Its guide also addresses opt-in commercial email. Personal Information Protection Commission materials cover purposes, collection, management, outsourcing, third-party provision and personal-data incidents. See `docs/research/M04_JAPAN_ECOMMERCE_PRIVACY_LEGAL_RESEARCH_2026-08-19.md`. |
+| Repository evidence | Current app code uses browser local storage/cache and has no app account, backend API, analytics SDK, payment, lead capture or support route. The pre-launch LP only opens the app. |
+| Required owner inputs | Legal seller name/entity, actual operating address, reliable telephone, responsible person, support/contact owner, product/delivery model, price/tax/fees, payments, refund/cancellation rule, domain/hosting, processor/vendor list, analytics/marketing policy, and final publication approval. |
+| Required external review | Japan-qualified review of the actual sales model, consumer disclosures, checkout, contract, privacy, refund/cancellation and claims. |
+| Consequence | Drafts are stored but not linked from the public LP; sale and data collection remain blocked. |
+
+| D-008 | 2026-08-19 | NO GO | Legal/commercial preparation saved; no publication or sales without owner input and professional review. | Legal/commercial audit; official-source research |
