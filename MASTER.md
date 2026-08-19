@@ -7,7 +7,7 @@
 | Repository | `https://github.com/daimon-app/daimon-meditation-timer` |
 | Branch | `main` |
 | Baseline HEAD | `651e5830bc2a047b55d8c334bb1f9b14e1eec62e` (`2026-06-13T22:48:08+09:00`, `Add files via upload`) |
-| Latest canonical commit | `9f8c37ac88c054b980ef359a9b170e2f37939ea8` (`feat: add DAIMON pre-launch landing flow`; pushed to `origin/main`) |
+| Latest canonical commit | `ec591874cf97e197f2d4ca014f1a7d2967186b9d` (`docs: add M04 legal and commercial release gates`; pushed to `origin/main`) |
 | Latest QA | [`docs/qa/M04_QA_RESULTS_2026-08-19.md`](docs/qa/M04_QA_RESULTS_2026-08-19.md): **FAIL / technical GO blocked**. |
 | Latest Audit | [`docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md`](docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md): **NO GO / no sale, checkout, lead capture, or legal publication**. Technical audit remains CONDITIONAL. |
 | Primary blocker | `TECH_FIX_REQUIRED`: F-001 break timer wall-clock recovery; F-002 sleep timer wall-clock recovery; F-003 semantic controls. Mobile, audible sound, explicit offline launch, and device-lock behavior also require re-QA. |
@@ -53,3 +53,4 @@ A future operator should read, in order: this file; the controlling M04 specific
 | 2026-08-19 | Pre-launch LP, app↔LP access flow, and pre-launch SNS material were prepared; no sales CTA was added. | `landing/index.html`; `docs/sales/`; D-007 |
 | 2026-08-19 | Pre-launch LP, linked app flow, and PWA cache update were committed and pushed. | `9f8c37ac88c054b980ef359a9b170e2f37939ea8` |
 | 2026-08-19 | Legal, privacy, FAQ, commercial disclosure, refund and support drafts plus a legal/commercial NO GO audit were prepared. | `docs/sales/`; `docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md`; D-008 |
+| 2026-08-19 | Legal/commercial release gates and source research were committed and pushed. | `ec591874cf97e197f2d4ca014f1a7d2967186b9d` |
