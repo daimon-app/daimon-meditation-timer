@@ -7,7 +7,7 @@
 | Repository | `https://github.com/daimon-app/daimon-meditation-timer` |
 | Branch | `main` |
 | Baseline HEAD | `651e5830bc2a047b55d8c334bb1f9b14e1eec62e` (`2026-06-13T22:48:08+09:00`, `Add files via upload`) |
-| Latest canonical commit | `ec591874cf97e197f2d4ca014f1a7d2967186b9d` (`docs: add M04 legal and commercial release gates`; pushed to `origin/main`) |
+| Latest canonical commit | `ad1f714414771648d172c12a601c85e3c1c3fe44` (`docs: record M04 final sales-ready verdict`; pushed to `origin/main`) |
 | Latest QA | [`docs/qa/M04_QA_RESULTS_2026-08-19.md`](docs/qa/M04_QA_RESULTS_2026-08-19.md): **FAIL / technical GO blocked**. |
 | Latest Audit | [`docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md`](docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md): **FINAL NO GO / do not start paid sales or commercial publication**. |
 | Primary blocker | `TECH_FIX_REQUIRED`: F-001 break timer wall-clock recovery; F-002 sleep timer wall-clock recovery; F-003 semantic controls. Mobile, audible sound, explicit offline launch, and device-lock behavior also require re-QA. |
@@ -55,3 +55,4 @@ A future operator should read, in order: this file; the controlling M04 specific
 | 2026-08-19 | Legal, privacy, FAQ, commercial disclosure, refund and support drafts plus a legal/commercial NO GO audit were prepared. | `docs/sales/`; `docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md`; D-008 |
 | 2026-08-19 | Legal/commercial release gates and source research were committed and pushed. | `ec591874cf97e197f2d4ca014f1a7d2967186b9d` |
 | 2026-08-19 | Final M04 audit completed: paid sales are NO GO pending technical remediation, commercial design, owner inputs, legal review and final approval. | `docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md`; D-009 |
+| 2026-08-19 | Final M04 audit, Decision Log and MASTER state were committed and pushed. | `ad1f714414771648d172c12a601c85e3c1c3fe44` |
