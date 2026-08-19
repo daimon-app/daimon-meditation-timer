@@ -91,3 +91,18 @@
 | Next validation | Define target segment and use case; test a free acquisition/activation flow; collect qualitative evidence; verify owner’s ability to supply a differentiated paid package; then re-evaluate. |
 
 | D-006 | 2026-08-19 | NO GO / CONDITIONAL | Current paid standalone sale is not justified; retain a post-remediation pilot path. | Market research dated 2026-08-19 |
+
+## 2026-08-19 — Pre-launch LP is implemented without a sales CTA
+
+| Field | Record |
+| --- | --- |
+| ID | `D-007` |
+| Status | `DECIDED` for pre-launch information surface; **not** a sales-launch approval. |
+| Decision | Add a static, price-free pre-launch LP and bidirectional link between the app and LP. The only public-facing action in this build is opening the timer. |
+| Evidence | `landing/index.html` rendered on a plain static server at `/landing/`. It included the supported product message, use moments, a browser/device limitation notice, and an app-access CTA. It showed no price, checkout, account creation, email capture, marketing opt-in, or purchase CTA. LP→app and app→LP were manually verified. `daimon-v5` cached the LP routes locally. |
+| Claims boundary | The LP excludes efficacy, medical, sleep, alarm, and guaranteed background behavior claims. The phrase “次の一手を残す” refers to the implemented break input/return mechanism; it is not a promise of timely break completion until F-001 is fixed. |
+| Deployment limitation | An SPA-fallback local development server served the root app for the clean LP path; a plain static server served `/landing/` correctly. Production hosting must be checked for correct directory-index/routing behavior. |
+| Consequence | The sales-web first-use deficit is partially remediated, but F-004 is not resolved because legal pages, support, seller disclosure, price, payment, and purchase/delivery flow remain unavailable by design. |
+| Next validation | Add owner-input-gated legal/support materials; then test production hosting, all links, and the final public copy. |
+
+| D-007 | 2026-08-19 | DECIDED | Pre-launch LP and bidirectional app link implemented; no sales CTA. | `landing/index.html`; sales flow spec; local integration check |

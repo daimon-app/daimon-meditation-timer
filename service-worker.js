@@ -1,10 +1,12 @@
 // DAIMON Service Worker
 // オフラインでも開けるようにキャッシュする
 
-const CACHE_NAME = 'daimon-v4';
+const CACHE_NAME = 'daimon-v5';
 const ASSETS = [
   './',
   './index.html',
+  './landing/',
+  './landing/index.html',
   './manifest.json',
   './assets/sounds/ocean-waves.mp3',
   './assets/sounds/river.mp3',

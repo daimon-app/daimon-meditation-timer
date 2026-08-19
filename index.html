@@ -101,7 +101,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   flex:1;padding:14px;background:transparent;
   border:1px solid var(--border2);color:var(--muted);
   font-family:'Noto Serif JP',serif;font-size:11px;letter-spacing:3px;
-  cursor:pointer;transition:all 0.25s;
+  cursor:pointer;transition:all 0.25s;text-align:center;text-decoration:none;
 }
 .info-link:hover{border-color:var(--gold);color:var(--gold2);}
 
@@ -387,6 +387,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   <div class="home-links">
     <button class="info-link" onclick="renderHistory();showScreen('history')">記録</button>
     <button class="info-link" onclick="showScreen('info')">時間別効果</button>
+    <a class="info-link" href="landing/">はじめに</a>
   </div>
 </div>
 
