@@ -7,6 +7,7 @@
 | Repository | `https://github.com/daimon-app/daimon-meditation-timer` |
 | Branch | `main` |
 | Baseline HEAD | `651e5830bc2a047b55d8c334bb1f9b14e1eec62e` (`2026-06-13T22:48:08+09:00`, `Add files via upload`) |
+| Latest canonical commit | `be72a6cb55fc9dc7c04d652e1d54a8e2135f8e80` (`docs: establish M04 sales-ready source of truth`; pushed to `origin/main`) |
 | Latest QA | Initial live browser check recorded in [`docs/audits/INITIAL_TECHNICAL_OBSERVATIONS.md`](docs/audits/INITIAL_TECHNICAL_OBSERVATIONS.md). Formal QA specification and result are pending creation. |
 | Latest Audit | Initial code, PWA cache, and live interaction observation recorded in [`docs/audits/INITIAL_TECHNICAL_OBSERVATIONS.md`](docs/audits/INITIAL_TECHNICAL_OBSERVATIONS.md). Formal technical audit is pending. |
 | Primary blocker | Technical reliability findings require full QA classification before a sales claim can be approved. |
@@ -44,3 +45,4 @@ A future operator should read, in order: this file; the controlling M04 specific
 | 2026-08-19 | Canonical repository, `main` branch, and baseline commit were verified from GitHub and cloned for inspection. | Initial shell audit; baseline commit above. |
 | 2026-08-19 | Live app load, active service worker, PWA cache contents, 30-second session start/pause, and foreground-return completion logic were observed. | [`docs/audits/INITIAL_TECHNICAL_OBSERVATIONS.md`](docs/audits/INITIAL_TECHNICAL_OBSERVATIONS.md) |
 | 2026-08-19 | GitHub Source-of-Truth operating rule and M04 execution specification were saved. | `docs/specs/M04_SALES_READY_EXECUTION_SPEC.md` |
+| 2026-08-19 | Initial source-of-truth documentation was committed and pushed without staging application code or unrelated files. | `be72a6cb55fc9dc7c04d652e1d54a8e2135f8e80` |
