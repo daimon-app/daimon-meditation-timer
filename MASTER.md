@@ -3,18 +3,18 @@
 | Field | Current canonical state |
 | --- | --- |
 | Product | **DAIMON — 整える**。短時間の瞑想、睡眠時の自然音、次の一手を残す休憩を、静的PWAとして提供するプロダクト。 |
-| Current Stage | **Stage 5 — Legal, privacy, FAQ, refund, and support drafts prepared; owner input and professional review pending** |
+| Current Stage | **Stage 6 — Final M04 audit complete: paid sales NO GO; remediation and owner/commercial gates pending** |
 | Repository | `https://github.com/daimon-app/daimon-meditation-timer` |
 | Branch | `main` |
 | Baseline HEAD | `651e5830bc2a047b55d8c334bb1f9b14e1eec62e` (`2026-06-13T22:48:08+09:00`, `Add files via upload`) |
 | Latest canonical commit | `ec591874cf97e197f2d4ca014f1a7d2967186b9d` (`docs: add M04 legal and commercial release gates`; pushed to `origin/main`) |
 | Latest QA | [`docs/qa/M04_QA_RESULTS_2026-08-19.md`](docs/qa/M04_QA_RESULTS_2026-08-19.md): **FAIL / technical GO blocked**. |
-| Latest Audit | [`docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md`](docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md): **NO GO / no sale, checkout, lead capture, or legal publication**. Technical audit remains CONDITIONAL. |
+| Latest Audit | [`docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md`](docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md): **FINAL NO GO / do not start paid sales or commercial publication**. |
 | Primary blocker | `TECH_FIX_REQUIRED`: F-001 break timer wall-clock recovery; F-002 sleep timer wall-clock recovery; F-003 semantic controls. Mobile, audible sound, explicit offline launch, and device-lock behavior also require re-QA. |
 | Sales blocker | Current paid standalone offer is `NO GO`: no validated willingness to pay or differentiated paid package; F-001〜F-003 remain open; and no canonical sales channel, payment setup, seller identity, business address/contact details, domain, support contact, refund policy decision, vendor/data map, legal review, or owner-approved price exists. |
 | Approval Required | Owner approval is mandatory before domain publication, legal-document publication with verified seller particulars, payment activation, pricing release, external promotion, data collection, and sales start. Qualified Japanese legal review is also required for the actual sales model. |
 | Git status at source-of-truth initialization | Baseline working tree was clean. The current documentation set is newly authored as a separate, reviewable change set. |
-| Next Action | Commit legal/commercial preparation; then compile final release audit, TECH_FIX_REQUIRED list, owner-input checklist, and NO GO/CONDITIONAL decision package. |
+| Next Action | Commit final audit; assign F-001〜F-003 for implementation; perform device/production re-QA; then obtain owner commercial inputs and qualified legal review before any launch approval request. |
 
 ## Canonical documentation map
 
@@ -23,9 +23,9 @@
 | Controlling M04 specification | [`docs/specs/M04_SALES_READY_EXECUTION_SPEC.md`](docs/specs/M04_SALES_READY_EXECUTION_SPEC.md) | Saved and pushed in `be72a6c`. |
 | Product and implementation specification | [`docs/specs/PRODUCT_AND_IMPLEMENTATION_SPEC.md`](docs/specs/PRODUCT_AND_IMPLEMENTATION_SPEC.md) | Saved and pushed in `c4c9777`. |
 | QA specification and results | [`docs/qa/M04_QA_SPEC.md`](docs/qa/M04_QA_SPEC.md), [`docs/qa/M04_QA_RESULTS_2026-08-19.md`](docs/qa/M04_QA_RESULTS_2026-08-19.md) | Saved; QA result is technical FAIL. |
-| Technical and sales audit | [`docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md`](docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md), [`docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md`](docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md) | Technical CONDITIONAL; legal/commercial NO GO. |
+| Technical and sales audit | [`docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md`](docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md), [`docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md`](docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md), [`docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md`](docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md) | Final M04 decision is NO GO. |
 | Market and competitor research | [`docs/research/M04_MARKET_COMPETITOR_PRICING_2026-08-19.md`](docs/research/M04_MARKET_COMPETITOR_PRICING_2026-08-19.md) | Saved; current paid sale is NO GO (D-006). |
-| Decision log | [`docs/decisions/DECISION_LOG.md`](docs/decisions/DECISION_LOG.md) | D-001 through D-008 recorded; paid sale remains NO GO. |
+| Decision log | [`docs/decisions/DECISION_LOG.md`](docs/decisions/DECISION_LOG.md) | D-001 through D-009 recorded; D-009 is the final paid-sales NO GO. |
 | Sales materials and legal publishing checklist | [`docs/sales/LP_COPY_AND_SALES_FLOW.md`](docs/sales/LP_COPY_AND_SALES_FLOW.md), [`docs/sales/SNS_PRELAUNCH_AND_CONTENT.md`](docs/sales/SNS_PRELAUNCH_AND_CONTENT.md), [`docs/sales/PRIVACY_NOTICE_DRAFT.md`](docs/sales/PRIVACY_NOTICE_DRAFT.md), [`docs/sales/TERMS_OF_USE_DRAFT.md`](docs/sales/TERMS_OF_USE_DRAFT.md), [`docs/sales/COMMERCIAL_DISCLOSURE_REFUND_SUPPORT_DRAFT.md`](docs/sales/COMMERCIAL_DISCLOSURE_REFUND_SUPPORT_DRAFT.md), [`docs/sales/FAQ_DRAFT.md`](docs/sales/FAQ_DRAFT.md) | Drafts saved; factual completion, legal review and publication remain blocked. |
 
 ## Operating rules
@@ -54,3 +54,4 @@ A future operator should read, in order: this file; the controlling M04 specific
 | 2026-08-19 | Pre-launch LP, linked app flow, and PWA cache update were committed and pushed. | `9f8c37ac88c054b980ef359a9b170e2f37939ea8` |
 | 2026-08-19 | Legal, privacy, FAQ, commercial disclosure, refund and support drafts plus a legal/commercial NO GO audit were prepared. | `docs/sales/`; `docs/audits/M04_LEGAL_COMMERCIAL_AUDIT_2026-08-19.md`; D-008 |
 | 2026-08-19 | Legal/commercial release gates and source research were committed and pushed. | `ec591874cf97e197f2d4ca014f1a7d2967186b9d` |
+| 2026-08-19 | Final M04 audit completed: paid sales are NO GO pending technical remediation, commercial design, owner inputs, legal review and final approval. | `docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md`; D-009 |

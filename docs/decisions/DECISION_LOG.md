@@ -121,3 +121,19 @@
 | Consequence | Drafts are stored but not linked from the public LP; sale and data collection remain blocked. |
 
 | D-008 | 2026-08-19 | NO GO | Legal/commercial preparation saved; no publication or sales without owner input and professional review. | Legal/commercial audit; official-source research |
+
+## 2026-08-19 — Final M04 sales-ready decision
+
+| Field | Record |
+| --- | --- |
+| ID | `D-009` |
+| Status | **FINAL NO GO** — do not start paid sales or commercial publication. |
+| Decision | The product may remain a free/pre-launch evaluation build, but it must not be positioned or operated as a paid standalone product. |
+| Technical reason | F-001 (break wall-clock recovery), F-002 (sleep wall-clock recovery), and F-003 (semantic keyboard/accessibility controls) remain `TECH_FIX_REQUIRED`. Mobile, audible audio, lock-screen, installed-PWA and production-offline QA are incomplete. |
+| Product/market reason | Differentiation is a “戻るため” hypothesis, not validated willingness to pay; current paid product and price are not defined or approved. |
+| Commercial/legal reason | Seller particulars, support, payment, delivery, refund/cancellation, checkout, vendor map, public privacy/terms/disclosure, and professional legal review are absent. |
+| Positive completed work | GitHub source-of-truth system, specification, QA/audits, decision log, market/legal research, pre-launch LP, PWA LP cache, app↔LP flow, sales copy, SNS draft, and owner-input-gated legal/support drafts are saved. |
+| Approval rule | Explicit owner approval is required only after all technical, commercial, legal/privacy, production and product-validation gates turn GREEN. Approval cannot cure unresolved technical or statutory requirements. |
+| Next action | Assign and implement F-001–F-003; conduct device/production re-QA; then collect owner information and select a validated paid package/sales stack before requesting legal review and launch approval. |
+
+| D-009 | 2026-08-19 | FINAL NO GO | M04 cannot enter paid sales; preserve as pre-launch/free evaluation until all gates pass. | `docs/audits/M04_FINAL_SALES_READY_AUDIT_2026-08-19.md` |
