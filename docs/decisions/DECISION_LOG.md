@@ -76,3 +76,18 @@
 | Next validation | Engineering remediation of F-001, F-002, F-003 followed by mobile device, installed-PWA, offline, audio, and screen-lock re-QA. |
 
 | D-005 | 2026-08-19 | TECH_FIX_REQUIRED | Initial technical QA blocks commercial GO. | QA result and technical audit dated 2026-08-19 |
+
+## 2026-08-19 — Current paid standalone offer is not justified
+
+| Field | Record |
+| --- | --- |
+| ID | `D-006` |
+| Status | `NO GO` for current paid standalone sale; `CONDITIONAL` path retained for a post-remediation pilot. |
+| Decision | Do not set a public price or activate sales for the current timer as a paid standalone product. |
+| Market evidence | Insight Timer, Calm, MEISOON, Forest, and Focus To-Do demonstrate broad free or paid offerings in meditation, sleep, natural sound, focus timers, tasking, tracking, guidance, blocking, and offline features. The full source comparison is in `docs/research/M04_MARKET_COMPETITOR_PRICING_2026-08-19.md`. |
+| Repository evidence | DAIMON’s differentiated nucleus is the “戻るため” intent and break-mode next-action capture. It does not have the content catalogue, synchronisation, reminders, app blocking, verified timer reliability, or commercial operations found in comparators. |
+| Consequence | No subscription. No unsupported high-tier benchmark. Any later paid pilot must sell a clearly specified unique outcome/package rather than a generic timer. |
+| Provisional price hypothesis | After technical remediation and validated demand, test a small one-time paid package in the ¥500–¥1,000 range only if it contains a clear, owner-supplied, distinctive “return-to-action” protocol or equivalent value. This is a test hypothesis, not an approved price. |
+| Next validation | Define target segment and use case; test a free acquisition/activation flow; collect qualitative evidence; verify owner’s ability to supply a differentiated paid package; then re-evaluate. |
+
+| D-006 | 2026-08-19 | NO GO / CONDITIONAL | Current paid standalone sale is not justified; retain a post-remediation pilot path. | Market research dated 2026-08-19 |
