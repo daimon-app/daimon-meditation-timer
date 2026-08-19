@@ -7,7 +7,7 @@
 | Repository | `https://github.com/daimon-app/daimon-meditation-timer` |
 | Branch | `main` |
 | Baseline HEAD | `651e5830bc2a047b55d8c334bb1f9b14e1eec62e` (`2026-06-13T22:48:08+09:00`, `Add files via upload`) |
-| Latest canonical commit | `c4c9777867236127e9e3ad909577ee533f633a91` (`docs: add M04 technical QA and release gate`; pushed to `origin/main`) |
+| Latest canonical commit | `575d2e603af4c22f52c709f84dcc1a77e9e2e5e3` (`docs: add M04 market and pricing decision`; pushed to `origin/main`) |
 | Latest QA | [`docs/qa/M04_QA_RESULTS_2026-08-19.md`](docs/qa/M04_QA_RESULTS_2026-08-19.md): **FAIL / technical GO blocked**. |
 | Latest Audit | [`docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md`](docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md): **CONDITIONAL / do not start sales**. |
 | Primary blocker | `TECH_FIX_REQUIRED`: F-001 break timer wall-clock recovery; F-002 sleep timer wall-clock recovery; F-003 semantic controls. Mobile, audible sound, explicit offline launch, and device-lock behavior also require re-QA. |
@@ -49,3 +49,4 @@ A future operator should read, in order: this file; the controlling M04 specific
 | 2026-08-19 | Initial technical QA and technical audit completed; F-001 through F-003 block technical GO. | `docs/qa/M04_QA_RESULTS_2026-08-19.md`; `docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md`; D-005 |
 | 2026-08-19 | Technical QA, audit, implementation specification, and release gate were committed and pushed without application-code changes. | `c4c9777867236127e9e3ad909577ee533f633a91` |
 | 2026-08-19 | Official competitor research completed; generic paid timer sale is NO GO and a post-remediation pilot path is conditional. | `docs/research/M04_MARKET_COMPETITOR_PRICING_2026-08-19.md`; D-006 |
+| 2026-08-19 | Market research and paid-sale decision were committed and pushed. | `575d2e603af4c22f52c709f84dcc1a77e9e2e5e3` |
