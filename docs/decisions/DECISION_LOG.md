@@ -61,3 +61,18 @@
 | D-002 | 2026-08-19 | PROVISIONAL | Position as return-to-action, not generic meditation. | Existing UI and copy; research pending |
 | D-003 | 2026-08-19 | OWNER_REQUIRED | No sales/publication authorization. | Baseline code and repository audit |
 | D-004 | 2026-08-19 | TECH_FIX_REQUIRED | Break/sleep clock reliability is a release gate. | `index.html`; runtime check; QA pending |
+
+## 2026-08-19 — Technical QA blocks a commercial release
+
+| Field | Record |
+| --- | --- |
+| ID | `D-005` |
+| Status | `TECH_FIX_REQUIRED` |
+| Decision | A commercial `GO` is prohibited at the end of the initial technical QA. The strongest tested flow is the primary meditation timer; the break and sleep flows do not meet the same reliability standard. |
+| Verified evidence | The primary 30-second flow started, paused, resumed, recalculated to expiry on foreground-return simulation, displayed completion, saved history, and acquired/released Wake Lock in the sandbox browser. PWA service worker and required caches were active. |
+| Failing evidence | Break decrements a counter on interval; sleep increments a counter on interval; neither has an absolute deadline or foreground reconciliation. Timer cards and count sound use clickable `div` controls rather than semantic buttons. |
+| Canonical evidence paths | `docs/qa/M04_QA_SPEC.md`, `docs/qa/M04_QA_RESULTS_2026-08-19.md`, `docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md`, `docs/specs/PRODUCT_AND_IMPLEMENTATION_SPEC.md`. |
+| Consequence | Do not state or imply reliable break/sleep end timing, guaranteed background completion, guaranteed screen wake prevention, or accessible keyboard support. Do not start sales. |
+| Next validation | Engineering remediation of F-001, F-002, F-003 followed by mobile device, installed-PWA, offline, audio, and screen-lock re-QA. |
+
+| D-005 | 2026-08-19 | TECH_FIX_REQUIRED | Initial technical QA blocks commercial GO. | QA result and technical audit dated 2026-08-19 |
