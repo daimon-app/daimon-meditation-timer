@@ -7,7 +7,7 @@
 | Repository | `https://github.com/daimon-app/daimon-meditation-timer` |
 | Branch | `main` |
 | Baseline HEAD | `651e5830bc2a047b55d8c334bb1f9b14e1eec62e` (`2026-06-13T22:48:08+09:00`, `Add files via upload`) |
-| Latest canonical commit | `be72a6cb55fc9dc7c04d652e1d54a8e2135f8e80` (`docs: establish M04 sales-ready source of truth`; pushed to `origin/main`) |
+| Latest canonical commit | `c4c9777867236127e9e3ad909577ee533f633a91` (`docs: add M04 technical QA and release gate`; pushed to `origin/main`) |
 | Latest QA | [`docs/qa/M04_QA_RESULTS_2026-08-19.md`](docs/qa/M04_QA_RESULTS_2026-08-19.md): **FAIL / technical GO blocked**. |
 | Latest Audit | [`docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md`](docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md): **CONDITIONAL / do not start sales**. |
 | Primary blocker | `TECH_FIX_REQUIRED`: F-001 break timer wall-clock recovery; F-002 sleep timer wall-clock recovery; F-003 semantic controls. Mobile, audible sound, explicit offline launch, and device-lock behavior also require re-QA. |
@@ -47,3 +47,4 @@ A future operator should read, in order: this file; the controlling M04 specific
 | 2026-08-19 | GitHub Source-of-Truth operating rule and M04 execution specification were saved. | `docs/specs/M04_SALES_READY_EXECUTION_SPEC.md` |
 | 2026-08-19 | Initial source-of-truth documentation was committed and pushed without staging application code or unrelated files. | `be72a6cb55fc9dc7c04d652e1d54a8e2135f8e80` |
 | 2026-08-19 | Initial technical QA and technical audit completed; F-001 through F-003 block technical GO. | `docs/qa/M04_QA_RESULTS_2026-08-19.md`; `docs/audits/M04_TECHNICAL_AUDIT_2026-08-19.md`; D-005 |
+| 2026-08-19 | Technical QA, audit, implementation specification, and release gate were committed and pushed without application-code changes. | `c4c9777867236127e9e3ad909577ee533f633a91` |
